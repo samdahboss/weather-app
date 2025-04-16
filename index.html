@@ -21,75 +21,217 @@
     class="bg-white text-black font-sans transition duration-300 ease-in-out"
   >
     <!-- Navbar -->
-    <header class="flex justify-between items-center px-6 py-4 border-b">
-      <div class="text-2xl text-blue-400 font-bold bungee-regular">Cuacane</div>
+    <header
+      class="flex fixed top-0 w-full bg-white h-[80px] z-50 justify-between items-center px-6 py-4 border-b"
+    >
+      <div class="text-2xl text-blue-400 font-bold bungee-regular">
+        WUMICODES
+      </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="text-left py-12">
-      <div class="grid p-6 md:grid-cols-2 md:p-16">
-        <h1 class="text-4xl font-semibold mb-4 bungee-regular">
+    <section
+      class="flex flex-col relative items-center mt-[80px] py-12 h-[100vh] bg-[url('./weather-bg2.jpg')] bg-cover"
+    >
+      <!-- Overlay -->
+      <div
+        class="absolute inset-0 bg-black bg-opacity-80 w-full h-full z-10"
+      ></div>
+
+      <!-- Content -->
+      <div
+        class="relative flex flex-col text-center p-6 text-white md:p-16 z-40"
+      >
+        <h1 class="text-2xl md:text-4xl font-semibold mb-4 bungee-regular">
           Provide you a world wide weather forecast
         </h1>
-        <p class="max-w-lg mx-auto text-gray-600 font-bold">
+        <p class="max-w-lg text-center mx-auto font-bold">
           The World’s Most Accurate Forecaster. With extreme weather on the
           rise. It's so easy to receive the weather conditions in your current
           location.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 items-center p-0 relative mt-8">
+      <div
+        class="flex flex-col w-full items-center px-12 md:px-24 relative z-40"
+      >
         <div
-          class="flex items-center justify-center md:justify-end bg-blue-200 p-4 md:p-0 h-full items-center"
+          class="flex items-center justify-center bg-blue-200 p-2 md:p-4 w-full h-full items-center"
         >
-          <div class="bg-white md:p-6 w-2/3 md:w-4/5 flex items-center justify-center md:justify-end">
+          <div
+            class="bg-white md:p-4 w-full flex items-center justify-center md:justify-end"
+          >
             <input
               type="text"
               placeholder="Search place"
               class="px-6 py-3 w-full rounded-l focus:outline-none"
             />
-            <button class="bg-[#1f1e31] text-white px-6 py-3">
-              Search
-            </button>
+            <button class="bg-[#1f1e31] text-white px-6 py-3">Search</button>
           </div>
         </div>
+      </div>
 
-        <!-- Recent Places -->
-        <div
-          class="nearby-cities flex flex-col gap-3 justify-between md:mt-0 px-12"
+      <!-- Scroll Down Icon -->
+      <div class="flex justify-center mt-16 md:mt-24 pb-12 z-40">
+        <a href="#your-city" class="href">
+          <div class="text-4xl font-bold text-white animate-bounce">↓</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="py-24" id="your-city">
+      <div>
+        <h2
+          class="text-3xl text-blue-500 text-center font-bold mb-10 bungee-regular"
         >
-          <h2 class="text-2xl font-semibold">Nearby Cities</h2>
-          <div class="grid grid-cols-3 gap-6">
-            <div class="bg-[#516170] px-6 text-white py-4 rounded shadow text-left">
-              <div class="font-bold">New York</div>
-              <div class="text-2xl">12°</div>
-              <div class="">Raining</div>
-            </div>
-            <div class="bg-blue-100 px-6 py-4 text-blue-700 rounded shadow text-left">
-              <div class="font-bold">Gotham</div>
-              <div class="text-2xl">14°</div>
-              <div class="">Mostly Clear</div>
-            </div>
-            <div class="bg-[#203148] px-6 py-4 text-white rounded shadow text-left">
-              <div class="font-bold">Madripoor</div>
-              <div class="text-2xl">11°</div>
-              <div class="">Mostly Clear</div>
+          YOUR CITY
+        </h2>
+        <div class="bg-gray-100 md:p-6 flex items-center w-full justify-center">
+          <div
+            class="bg-[#516170] px-2 sm:px-4 lg:px-6 w-full text-white py-4 rounded shadow text-left"
+          >
+            <div
+              class="bg-blue-300 text-white shadow-lg rounded-lg px-6 md:px-12 py-4 bw-full"
+            >
+              <!-- City Name -->
+              <div class="text-center mb-2">
+                <h2
+                  class="text-4xl text-[#516170] bungee-regular font-bold"
+                  id="city-name"
+                >
+                  New York
+                </h2>
+                <p
+                  class="text-2xl font-bold uppercase"
+                  id="weather-description"
+                >
+                  Light Rain
+                </p>
+              </div>
+
+              <!-- Weather Icon and Temperature -->
+              <div class="flex items-center justify-center mb-2">
+                <img
+                  src="https://openweathermap.org/img/wn/10d@4x.png"
+                  alt="Weather Icon"
+                  class="w-24 h-24"
+                  id="weather-icon"
+                />
+                <div class="text-6xl font-extrabold ml-4" id="temperature">
+                  25°C
+                </div>
+              </div>
+
+              <!-- Weather Details -->
+              <div class="grid grid-cols-2 gap-4 place-items-center px-2 sm:px-8 lg:px-32 text-sm">
+                <!-- Humidity -->
+                <div
+                  class="flex flex-col w-full max-w-sm text-black justify-center items-center gap-2 p-4 rounded bg-gradient-to-br from-blue-500 to-blue-700"
+                >
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/ffffff/humidity.png"
+                    alt="Humidity Icon"
+                    class=""
+                  />
+                  <div class="text-center">
+                    <span class="font-medium text-xl text-[#2f2f2f] uppercase bungee-regular font-bold">Humidity</span>
+                    <span class="block text-2xl text-white font-bold" id="humidity"
+                      >80%</span
+                    >
+                  </div>
+                </div>
+                <!-- Wind Speed -->
+                <div
+                  class="flex flex-col w-full max-w-sm text-black justify-center items-center gap-2 p-4 rounded bg-gradient-to-br from-blue-500 to-blue-700"
+                >
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/ffffff/wind.png"
+                    alt="Wind Icon"
+                    class=""
+                  />
+                  <div class="text-center">
+                    <span class="font-medium text-xl text-[#2f2f2f] uppercase bungee-regular font-bold">Wind Speed</span>
+                    <span class="block text-2xl text-white font-bold" id="wind-speed"
+                      >10 km/h</span
+                    >
+                  </div>
+                </div>
+                <!-- Pressure -->
+                <div
+                  class="flex flex-col w-full max-w-sm text-black justify-center items-center gap-2 p-4 rounded bg-gradient-to-br from-blue-500 to-blue-700"
+                >
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/ffffff/pressure.png"
+                    alt="Pressure Icon"
+                    class=""
+                  />
+                  <div class="text-center">
+                    <span class="font-medium text-xl text-[#2f2f2f] uppercase bungee-regular font-bold">Pressure</span>
+                    <span class="block text-2xl text-white font-bold" id="pressure"
+                      >1013 hPa</span
+                    >
+                  </div>
+                </div>
+                <!-- Visibility -->
+                <div
+                  class="flex flex-col w-full max-w-sm text-black justify-center items-center gap-2 p-4 rounded bg-gradient-to-br from-blue-500 to-blue-700"
+                >
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/ffffff/visible.png"
+                    alt="Visibility Icon"
+                    class=""
+                  />
+                  <div class="text-center">
+                    <span class="font-medium text-xl text-[#2f2f2f] uppercase bungee-regular font-bold">Visibility</span>
+                    <span class="block text-2xl text-white font-bold" id="visibility"
+                      >10 km</span
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Scroll Down Icon -->
-    <div class="flex justify-center py-4">
-      <a href="#world-forecast" class="href">
-        <div class="text-2xl animate-bounce">↓</div>
-      </a>
-    </div>
-
+    <section class="py-12" id="nearby-cities">
+      <div
+        class="nearby-cities flex flex-col gap-3 justify-between md:mt-0 px-12"
+      >
+        <h2 class="text-3xl font-semibold bungee-regular text-blue-400">
+          Nearby Cities
+        </h2>
+        <div class="grid grid-cols-3 gap-6">
+          <div
+            class="bg-[#516170] px-6 text-white py-4 rounded shadow text-left"
+          >
+            <div class="font-bold">New York</div>
+            <div class="text-2xl">12°</div>
+            <div class="">Raining</div>
+          </div>
+          <div
+            class="bg-blue-100 px-6 py-4 text-blue-700 rounded shadow text-left"
+          >
+            <div class="font-bold">Gotham</div>
+            <div class="text-2xl">14°</div>
+            <div class="">Mostly Clear</div>
+          </div>
+          <div
+            class="bg-[#203148] px-6 py-4 text-white rounded shadow text-left"
+          >
+            <div class="font-bold">Madripoor</div>
+            <div class="text-2xl">11°</div>
+            <div class="">Mostly Clear</div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- World Forecast -->
     <section class="text-center py-12" id="world-forecast">
-      <h2 class="text-3xl text-blue-500 font-bold mb-10 bungee-regular">World Forecast</h2>
+      <h2 class="text-3xl text-blue-500 font-bold mb-10 bungee-regular">
+        World Forecast
+      </h2>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
         <div class="flex justify-between items-center border px-6 py-4 rounded">
           <div class="flex items-center gap-2">
@@ -181,5 +323,7 @@
         </div>
       </div>
     </section>
+    <script src="config.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
