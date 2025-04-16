@@ -1,140 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Weather Details</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-sans text-gray-800">
 
-  <div class="max-w-7xl mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6 min-h-screen">
+  <div class="max-w-7xl mx-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 min-h-screen">
 
     <!-- Left: Current Weather Panel -->
-    <div class="bg-white p-6 rounded-3xl shadow-md md:col-span-1 flex flex-col items-center text-center">
-      <input id="search" type="text" placeholder="Search for places ..." class="w-full mb-4 p-2 rounded-lg border border-gray-200" />
+    <aside class="bg-white p-4 sm:p-6 rounded-3xl shadow-md flex flex-col items-center text-center">
+      <input
+        id="search"
+        type="text"
+        placeholder="Search for places …"
+        class="w-full mb-4 px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring sm:px-4 sm:py-3"
+      />
 
-      <div class="text-7xl mb-2" id="current-temp">12°C</div>
-      <div class="text-sm text-gray-500 mb-6" id="current-time">Monday, 16:00</div>
-
-      <img src="https://img.icons8.com/emoji/96/000000/sun-emoji.png" class="w-24 h-24 mb-4" id="weather-icon" alt="Weather Icon" />
-      
-      <p class="text-md font-medium" id="weather-main">Mostly Cloudy</p>
-      <p class="text-sm text-gray-500 mb-6" id="weather-desc">Rain - 30%</p>
-
-      <div class="rounded-xl overflow-hidden w-full mt-auto">
-        <img src="https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="City image" class="object-cover w-full h-32" />
-        <p class="mt-2 font-semibold" id="location">New York, NY, USA</p>
+      <div class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-2" id="current-temp">
+        12°C
       </div>
-    </div>
+      <div class="text-xs sm:text-sm text-gray-500 mb-6" id="current-time">
+        Monday, 16:00
+      </div>
+
+      <img
+        id="weather-icon"
+        src="https://img.icons8.com/emoji/96/000000/sun-emoji.png"
+        alt="Weather Icon"
+        class="w-20 h-20 sm:w-24 sm:h-24 mb-4"
+      />
+
+      <p class="text-sm sm:text-md font-medium mb-1" id="weather-main">Mostly Cloudy</p>
+      <p class="text-xs sm:text-sm text-gray-500 mb-6" id="weather-desc">Rain – 30%</p>
+
+      <div class="w-full rounded-xl overflow-hidden mt-auto">
+        <img
+          src="https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="City image"
+          class="object-cover w-full h-64 sm:max-h-64"
+        />
+        <p class="mt-2 text-sm sm:text-md font-semibold" id="location">
+          New York, NY, USA
+        </p>
+      </div>
+    </aside>
 
     <!-- Right: Weather Details -->
-    <div class="md:col-span-2 grid grid-cols-1 gap-6">
+    <main class="lg:col-span-2 flex flex-col gap-4 sm:gap-6">
 
       <!-- Tabs -->
-      <div class="flex justify-between items-center">
-        <div class="space-x-4 text-lg font-medium">
-          <!-- <button class="text-gray-400 hover:text-black transition">Today</button> -->
-          <button class="border-b-2 border-black">Week</button>
-        </div>
+      <div class="flex justify-start items-center">
+        <button class="text-sm sm:text-base md:text-lg font-medium border-b-2 border-black">
+          Week
+        </button>
       </div>
 
       <!-- Forecast Cards -->
-      <div class="grid md:grid-cols-3 lg:grid-cols-7 gap-2 text-center">
+      <section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-2 text-center">
         <!-- Sunday -->
-        <div class="bg-white rounded-xl p-4 shadow">
-          <p class="font-medium">Sun</p>
-          <img src="https://img.icons8.com/color/48/sun.png" class="mx-auto w-10" />
-          <p class="text-sm">15° / 3°</p>
+        <div class="bg-white rounded-xl p-2 sm:p-4 shadow">
+          <p class="text-xs sm:text-sm font-medium">Sun</p>
+          <img src="https://img.icons8.com/color/48/sun.png" class="mx-auto w-8 sm:w-10" />
+          <p class="text-xs sm:text-sm">15° / 3°</p>
         </div>
         <!-- Monday -->
-        <div class="bg-white rounded-xl p-4 shadow">
-          <p class="font-medium">Mon</p>
-          <img src="https://img.icons8.com/color/48/partly-cloudy-day.png" class="mx-auto w-10" />
-          <p class="text-sm">12° / 7°</p>
+        <div class="bg-white rounded-xl p-2 sm:p-4 shadow">
+          <p class="text-xs sm:text-sm font-medium">Mon</p>
+          <img src="https://img.icons8.com/color/48/partly-cloudy-day.png" class="mx-auto w-8 sm:w-10" />
+          <p class="text-xs sm:text-sm">12° / 7°</p>
         </div>
         <!-- Tuesday -->
-        <div class="bg-white rounded-xl p-4 shadow">
-          <p class="font-medium">Tue</p>
-          <img src="https://img.icons8.com/color/48/cloud.png" class="mx-auto w-10" />
-          <p class="text-sm">9° / 7°</p>
+        <div class="bg-white rounded-xl p-2 sm:p-4 shadow">
+          <p class="text-xs sm:text-sm font-medium">Tue</p>
+          <img src="https://img.icons8.com/color/48/cloud.png" class="mx-auto w-8 sm:w-10" />
+          <p class="text-xs sm:text-sm">9° / 7°</p>
         </div>
         <!-- Wednesday -->
-        <div class="bg-white rounded-xl p-4 shadow">
-          <p class="font-medium">Wed</p>
-          <img src="https://img.icons8.com/color/48/rain.png" class="mx-auto w-10" />
-          <p class="text-sm">8° / 1°</p>
+        <div class="bg-white rounded-xl p-2 sm:p-4 shadow">
+          <p class="text-xs sm:text-sm font-medium">Wed</p>
+          <img src="https://img.icons8.com/color/48/rain.png" class="mx-auto w-8 sm:w-10" />
+          <p class="text-xs sm:text-sm">8° / 1°</p>
         </div>
         <!-- Thursday -->
-        <div class="bg-white rounded-xl p-4 shadow">
-          <p class="font-medium">Thu</p>
-          <img src="https://img.icons8.com/color/48/wind.png" class="mx-auto w-10" />
-          <p class="text-sm">5° / 2°</p>
+        <div class="bg-white rounded-xl p-2 sm:p-4 shadow">
+          <p class="text-xs sm:text-sm font-medium">Thu</p>
+          <img src="https://img.icons8.com/color/48/wind.png" class="mx-auto w-8 sm:w-10" />
+          <p class="text-xs sm:text-sm">5° / 2°</p>
         </div>
         <!-- Friday -->
-        <div class="bg-white rounded-xl p-4 shadow">
-          <p class="font-medium">Fri</p>
-          <img src="https://img.icons8.com/color/48/sun.png" class="mx-auto w-10" />
-          <p class="text-sm">4° / 4°</p>
+        <div class="bg-white rounded-xl p-2 sm:p-4 shadow">
+          <p class="text-xs sm:text-sm font-medium">Fri</p>
+          <img src="https://img.icons8.com/color/48/sun.png" class="mx-auto w-8 sm:w-10" />
+          <p class="text-xs sm:text-sm">4° / 4°</p>
         </div>
         <!-- Saturday -->
-        <div class="bg-white rounded-xl p-4 shadow">
-          <p class="font-medium">Sat</p>
-          <img src="https://img.icons8.com/color/48/sun.png" class="mx-auto w-10" />
-          <p class="text-sm">3° / 3°</p>
+        <div class="bg-white rounded-xl p-2 sm:p-4 shadow">
+          <p class="text-xs sm:text-sm font-medium">Sat</p>
+          <img src="https://img.icons8.com/color/48/sun.png" class="mx-auto w-8 sm:w-10" />
+          <p class="text-xs sm:text-sm">3° / 3°</p>
         </div>
-      </div>
+      </section>
 
       <!-- Today's Highlights -->
-      <div>
-        <h2 class="text-xl font-semibold mb-4">Today's Highlights</h2>
+      <section>
+        <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-4">Today's Highlights</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-
           <!-- UV Index -->
-          <div class="bg-white p-4 rounded-xl shadow">
-            <p class="text-sm text-gray-500 mb-2">UV Index</p>
-            <p class="text-3xl font-bold" id="uv-index">5</p>
+          <div class="bg-white p-3 sm:p-4 rounded-xl shadow">
+            <p class="text-xs sm:text-sm text-gray-500 mb-2">UV Index</p>
+            <p class="text-2xl sm:text-3xl font-bold" id="uv-index">5</p>
             <p class="text-xs text-gray-500">Moderate</p>
           </div>
 
           <!-- Wind Status -->
-          <div class="bg-white p-4 rounded-xl shadow">
-            <p class="text-sm text-gray-500 mb-2">Wind Status</p>
-            <p class="text-3xl font-bold"><span id="wind-speed">7.7</span> <span class="text-sm">km/h</span></p>
-            <p class="text-xs" id="wind-direction">WSW</p>
+          <div class="bg-white p-3 sm:p-4 rounded-xl shadow">
+            <p class="text-xs sm:text-sm text-gray-500 mb-2">Wind Status</p>
+            <p class="text-2xl sm:text-3xl font-bold">
+              <span id="wind-speed">7.7</span><span class="text-xs sm:text-sm"> km/h</span>
+            </p>
+            <p class="text-xs sm:text-sm" id="wind-direction">WSW</p>
           </div>
 
           <!-- Sunrise & Sunset -->
-          <div class="bg-white p-4 rounded-xl shadow">
-            <p class="text-sm text-gray-500 mb-2">Sunrise & Sunset</p>
-            <p class="text-sm">🌅 <span id="sunrise">6:35 AM</span></p>
-            <p class="text-sm">🌇 <span id="sunset">5:42 PM</span></p>
+          <div class="bg-white p-3 sm:p-4 rounded-xl shadow">
+            <p class="text-xs sm:text-sm text-gray-500 mb-2">Sunrise & Sunset</p>
+            <p class="text-xs sm:text-sm">🌅 <span id="sunrise">6:35 AM</span></p>
+            <p class="text-xs sm:text-sm">🌇 <span id="sunset">5:42 PM</span></p>
           </div>
 
           <!-- Humidity -->
-          <div class="bg-white p-4 rounded-xl shadow">
-            <p class="text-sm text-gray-500 mb-2">Humidity</p>
-            <p class="text-3xl font-bold" id="humidity">12%</p>
-            <p class="text-xs text-gray-500">Normal 👍🏼</p>
+          <div class="bg-white p-3 sm:p-4 rounded-xl shadow">
+            <p class="text-xs sm:text-sm text-gray-500 mb-2">Humidity</p>
+            <p class="text-2xl sm:text-3xl font-bold" id="humidity">12%</p>
+            <p class="text-xs sm:text-sm text-gray-500">Normal 👍🏼</p>
           </div>
 
           <!-- Visibility -->
-          <div class="bg-white p-4 rounded-xl shadow">
-            <p class="text-sm text-gray-500 mb-2">Visibility</p>
-            <p class="text-3xl font-bold" id="visibility">5.2 km</p>
-            <p class="text-xs text-gray-500">Average 😐</p>
+          <div class="bg-white p-3 sm:p-4 rounded-xl shadow">
+            <p class="text-xs sm:text-sm text-gray-500 mb-2">Visibility</p>
+            <p class="text-2xl sm:text-3xl font-bold" id="visibility">5.2 km</p>
+            <p class="text-xs sm:text-sm text-gray-500">Average 😐</p>
           </div>
 
           <!-- Air Quality -->
-          <div class="bg-white p-4 rounded-xl shadow">
-            <p class="text-sm text-gray-500 mb-2">Air Quality</p>
-            <p class="text-3xl font-bold" id="air-quality">105</p>
-            <p class="text-xs text-red-500">Unhealthy 👎🏼</p>
+          <div class="bg-white p-3 sm:p-4 rounded-xl shadow">
+            <p class="text-xs sm:text-sm text-gray-500 mb-2">Air Quality</p>
+            <p class="text-2xl sm:text-3xl font-bold" id="air-quality">105</p>
+            <p class="text-xs sm:text-sm text-red-500">Unhealthy 👎🏼</p>
           </div>
-
         </div>
-      </div>
+      </section>
 
-    </div>
+    </main>
   </div>
 
 </body>
