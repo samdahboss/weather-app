@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee"
+      rel="stylesheet"
+    />
+    <style>
+      .bungee-regular {
+        font-family: "Bungee", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-white text-black font-sans transition duration-300 ease-in-out"
+  >
+    <!-- Navbar -->
+    <header class="flex justify-between items-center px-6 py-4 border-b">
+      <div class="text-2xl text-blue-400 font-bold bungee-regular">Cuacane</div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="text-left py-12">
+      <div class="grid p-6 md:grid-cols-2 md:p-16">
+        <h1 class="text-4xl font-semibold mb-4 bungee-regular">
+          Provide you a world wide weather forecast
+        </h1>
+        <p class="max-w-lg mx-auto text-gray-600 font-bold">
+          The World’s Most Accurate Forecaster. With extreme weather on the
+          rise. It's so easy to receive the weather conditions in your current
+          location.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 items-center p-0 relative mt-8">
+        <div
+          class="flex items-center justify-center md:justify-end bg-blue-200 p-4 md:p-0 h-full items-center"
+        >
+          <div class="bg-white md:p-6 w-2/3 md:w-4/5 flex items-center justify-center md:justify-end">
+            <input
+              type="text"
+              placeholder="Search place"
+              class="px-6 py-3 w-full rounded-l focus:outline-none"
+            />
+            <button class="bg-[#1f1e31] text-white px-6 py-3">
+              Search
+            </button>
+          </div>
+        </div>
+
+        <!-- Recent Places -->
+        <div
+          class="nearby-cities flex flex-col gap-3 justify-between md:mt-0 px-12"
+        >
+          <h2 class="text-2xl font-semibold">Nearby Cities</h2>
+          <div class="grid grid-cols-3 gap-6">
+            <div class="bg-[#516170] px-6 text-white py-4 rounded shadow text-left">
+              <div class="font-bold">New York</div>
+              <div class="text-2xl">12°</div>
+              <div class="">Raining</div>
+            </div>
+            <div class="bg-blue-100 px-6 py-4 text-blue-700 rounded shadow text-left">
+              <div class="font-bold">Gotham</div>
+              <div class="text-2xl">14°</div>
+              <div class="">Mostly Clear</div>
+            </div>
+            <div class="bg-[#203148] px-6 py-4 text-white rounded shadow text-left">
+              <div class="font-bold">Madripoor</div>
+              <div class="text-2xl">11°</div>
+              <div class="">Mostly Clear</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scroll Down Icon -->
+    <div class="flex justify-center py-4">
+      <a href="#world-forecast" class="href">
+        <div class="text-2xl animate-bounce">↓</div>
+      </a>
+    </div>
+
+    <!-- World Forecast -->
+    <section class="text-center py-12" id="world-forecast">
+      <h2 class="text-3xl text-blue-500 font-bold mb-10 bungee-regular">World Forecast</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div class="flex justify-between items-center border px-6 py-4 rounded">
+          <div class="flex items-center gap-2">
+            <img
+              src="https://flagcdn.com/w40/au.png"
+              alt="AU"
+              class="w-5 h-5"
+            />
+            AUS AUSTRALIA
+          </div>
+          <span>↗</span>
+        </div>
+        <div class="flex justify-between items-center border px-6 py-4 rounded">
+          <div class="flex items-center gap-2">
+            <img
+              src="https://flagcdn.com/w40/se.png"
+              alt="SWE"
+              class="w-5 h-5"
+            />
+            SWE SWEDEN
+          </div>
+          <span>↗</span>
+        </div>
+        <div class="flex justify-between items-center border px-6 py-4 rounded">
+          <div class="flex items-center gap-2">
+            <img
+              src="https://flagcdn.com/w40/nl.png"
+              alt="NLD"
+              class="w-5 h-5"
+            />
+            NLD NETHERLANDS
+          </div>
+          <span>↗</span>
+        </div>
+        <div class="flex justify-between items-center border px-6 py-4 rounded">
+          <div class="flex items-center gap-2">
+            <img
+              src="https://flagcdn.com/w40/gb.png"
+              alt="GBR"
+              class="w-5 h-5"
+            />
+            GBR UNITED KINGDOM
+          </div>
+          <span>↗</span>
+        </div>
+        <div class="flex justify-between items-center border px-6 py-4 rounded">
+          <div class="flex items-center gap-2">
+            <img
+              src="https://flagcdn.com/w40/id.png"
+              alt="IDN"
+              class="w-5 h-5"
+            />
+            IDN INDONESIA
+          </div>
+          <span>↗</span>
+        </div>
+        <div class="flex justify-between items-center border px-6 py-4 rounded">
+          <div class="flex items-center gap-2">
+            <img
+              src="https://flagcdn.com/w40/jp.png"
+              alt="JPN"
+              class="w-5 h-5"
+            />
+            JPN JAPAN
+          </div>
+          <span>↗</span>
+        </div>
+        <div class="flex justify-between items-center border px-6 py-4 rounded">
+          <div class="flex items-center gap-2">
+            <img
+              src="https://flagcdn.com/w40/ca.png"
+              alt="CAN"
+              class="w-5 h-5"
+            />
+            CAN CANADA
+          </div>
+          <span>↗</span>
+        </div>
+        <div class="flex justify-between items-center border px-6 py-4 rounded">
+          <div class="flex items-center gap-2">
+            <img
+              src="https://flagcdn.com/w40/us.png"
+              alt="USA"
+              class="w-5 h-5"
+            />
+            USA UNITED STATES
+          </div>
+          <span>↗</span>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
