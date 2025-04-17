@@ -53,7 +53,7 @@
         class="bg-white dark:bg-gray-800 p-4 sm:p-6 max-h-[95vh] rounded-3xl shadow-md flex flex-col items-center text-center"
       >
         <div
-          class="relative flex flex-col items-center justify-center  w-full items-center dark:bg-gray-800"
+          class="relative flex flex-col items-center justify-center w-full items-center dark:bg-gray-800"
         >
           <input
             id="search-input"
@@ -110,11 +110,16 @@
       >
         <!-- Tabs -->
         <div class="flex justify-start items-center">
-          <button
-            class="text-sm sm:text-base md:text-lg font-medium border-b-2 border-black"
+          <a
+            href="./index.html"
+            class="text-sm sm:text-base md:text-lg"
           >
-            Week
-          </button>
+            <div
+              class="text-2xl text-blue-400 font-bold bungee-regular dark:text-blue-300"
+            >
+              WUMICODES
+            </div>
+          </a>
         </div>
 
         <!-- Forecast Cards -->
@@ -244,9 +249,7 @@
               >
                 Sun Rise
               </p>
-              <p class="text-2xl sm:text-3xl font-bold" id="sunrise">
-                ...
-              </p>
+              <p class="text-2xl sm:text-3xl font-bold" id="sunrise">...</p>
             </div>
 
             <!-- Sunset-->
