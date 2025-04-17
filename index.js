@@ -1,17 +1,9 @@
-//Function to get the name of any city by coordinates
-const getCityName = async (latitude, longitude) => {
-  try {
-    const res = await fetch(
-      // Use reverse geocoding to get the city
-      `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
-    );
-
-    const data = await res.json();
-    return data.city;
-  } catch (err) {
-    console.log(err);
-  }
-};
+import {
+  getCityWeatherByName,
+  getCityName,
+  getNearbyCities,
+  formatData,
+} from "./utils.js";
 
 //Get the user's current location using the Geolocation API
 const getCurrentCity = async () => {
@@ -33,36 +25,6 @@ const getCurrentCity = async () => {
     });
   } else {
     throw new Error("Geolocation is not supported by this browser.");
-  }
-};
-
-// Use the OpenWeatherMap API to get the weather data by city name
-const getCityWeatherByName = async (cityName) => {
-  try {
-    const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${WEATHER_API_KEY}&units=metric`
-    );
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const getNearbyCities = async ({ latitude, longitude }) => {
-  try {
-    const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/find?lat=${latitude}&lon=${longitude}&cnt=10&appid=${WEATHER_API_KEY}&units=metric`
-    );
-    const data = await res.json();
-
-    // Extract city names and full data
-    const cityNames = data.list.map((city) => city.name);
-    const citiesData = data.list;
-
-    return { cityNames, citiesData };
-  } catch (error) {
-    console.error("Error fetching nearby cities:", error);
   }
 };
 
@@ -167,26 +129,14 @@ const populateNearbyCityCard = (
   document.querySelector(`#${id} [data-humidity]`).innerHTML = humidity;
   document.querySelector(`#${id} [data-wind-speed]`).innerHTML = windSpeed;
   document.querySelector(`#${id} [data-pressure]`).innerHTML = pressure;
-  document.querySelector(`#${id} [data-visibility]`).innerHTML = visibility;
+  document.querySelector(`#${id} [data-visibility]`).innerHTML =
+    visibility === "NaN km" ? "10 Km" : visibility;
 };
 
 const updateCityCards = async () => {
   const { city, latitude, longitude } = await getCurrentCity();
 
   const currentCityData = await getCityWeatherByName(city);
-
-  const formatData = (data) => {
-    return {
-      cityName: data.name, // City name
-      weatherDescription: data.weather[0].description, // Weather description
-      weatherIcon: `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="Weather Icon">`, // Weather icon
-      temperature: `${data.main.temp}°C`, // Temperature
-      humidity: `${data.main.humidity}%`, // Humidity
-      windSpeed: `${data.wind.speed} m/s`, // Wind speed
-      pressure: `${data.main.pressure} hPa`, // Pressure
-      visibility: `${data.visibility / 1000} km`, // Visibility in kilometers
-    };
-  };
 
   // Populate the city card with the extracted data
   const fillCurrentCityCard = () => {
@@ -220,8 +170,6 @@ const updateCityCards = async () => {
     longitude,
   });
 
-  console.log(citiesData);
-
   const fillNearbyCitiesCards = () => {
     citiesData.slice(1, 4).forEach((city, index) => {
       const currentCityFormatedData = formatData(city);
@@ -235,6 +183,9 @@ const updateCityCards = async () => {
         pressure,
         visibility,
       } = currentCityFormatedData;
+
+      // console.log(city, city.visibility, visibility);
+
       populateNearbyCityCard(
         `nearby-card-${index + 1}`,
         cityName,
@@ -282,7 +233,7 @@ const updateCityCards = async () => {
 
       return div;
     };
-    
+
     const moreCities = document.getElementById("more-cities");
     citiesData.forEach((city) => {
       const moreCityDiv = createMoreCityDiv(
