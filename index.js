@@ -207,7 +207,7 @@ const updateCityCards = async () => {
     const createMoreCityDiv = (weatherIconUrl, cityName) => {
       const div = document.createElement("div");
       div.className =
-        "flex justify-between bg-blue-100 items-center border px-6 py-4 rounded cursor-pointer";
+        "flex justify-between bg-blue-100 dark:bg-gray-300 items-center border px-6 py-4 rounded cursor-pointer";
 
       const innerDiv = document.createElement("div");
       innerDiv.className = "flex items-center gap-2";
@@ -218,13 +218,14 @@ const updateCityCards = async () => {
 
       const text = document.createElement("span");
       text.innerHTML = cityName;
-      text.className = "font-bold";
+      text.className = "font-bold dark:text-blue-500";
 
       innerDiv.appendChild(img);
       innerDiv.appendChild(text);
 
       const arrowSpan = document.createElement("span");
       arrowSpan.textContent = "↗";
+      arrowSpan.className="dark:text-black"
 
       div.appendChild(innerDiv);
       div.appendChild(arrowSpan);

@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App UI</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Configure Tailwind CSS for dark mode
+      tailwind.config = {
+        darkMode: "class", // Use 'class' strategy for dark mode
+      };
+    </script>
     <link
       href="https://fonts.googleapis.com/css2?family=Bungee"
       rel="stylesheet"
@@ -18,13 +24,13 @@
     </style>
   </head>
   <body
-    class="bg-white text-black font-sans transition duration-300 ease-in-out"
+    class="bg-white text-black font-sans transition duration-300 ease-in-out dark:bg-gray-900 dark:text-white"
   >
     <!-- Navbar -->
     <header
-      class="flex fixed top-0 w-full bg-white h-[80px] z-50 justify-between items-center px-6 py-4 border-b"
+      class="flex fixed top-0 w-full bg-white h-[80px] z-50 justify-between items-center px-6 py-4 border-b dark:bg-gray-800 dark:border-gray-700"
     >
-      <div class="text-2xl text-blue-400 font-bold bungee-regular">
+      <div class="text-2xl text-blue-400 font-bold bungee-regular dark:text-blue-300">
         WUMICODES
       </div>
       <!-- Dark Mode Toggle -->
@@ -40,11 +46,11 @@
 
     <!-- Hero Section -->
     <section
-      class="flex flex-col relative items-center mt-[80px] py-12 h-[100vh] bg-[url('./weather-bg2.jpg')] bg-cover"
+      class="flex flex-col relative items-center mt-[80px] py-12 h-[100vh] bg-[url('./weather-bg2.jpg')] bg-cover dark:bg-[url('./weather-bg-dark.jpg')]"
     >
       <!-- Overlay -->
       <div
-        class="absolute inset-0 bg-black bg-opacity-80 w-full h-full z-10"
+        class="absolute inset-0 bg-black bg-opacity-80 w-full h-full z-10 dark:bg-opacity-60"
       ></div>
 
       <!-- Content -->
@@ -65,7 +71,7 @@
         class="flex flex-col w-full items-center px-12 md:px-24 relative z-40"
       >
         <div
-          class="relative flex flex-col items-center justify-center bg-blue-200 p-2 md:p-4 w-full h-full items-center"
+          class="relative flex flex-col items-center justify-center bg-blue-200 p-2 md:p-4 w-full h-full items-center dark:bg-gray-800"
         >
           <div
             class="relative md:p-4 w-full flex items-center justify-center md:justify-end"
@@ -73,14 +79,14 @@
             <input
               type="text"
               placeholder="Search place"
-              class="px-6 py-3 w-full rounded-l focus:outline-none"
+              class="px-6 py-3 w-full rounded-l focus:outline-none dark:bg-gray-700 dark:text-white"
               id="search-input"
             />
             <!-- <button class="bg-[#1f1e31] text-white px-6 py-3">Search</button> -->
           </div>
           <div
             id="autocomplete"
-            class="bg-white shadow-lg absolute top-full left-0 w-full px-4 z-10 hidden"
+            class="bg-white shadow-lg absolute top-full left-0 w-full px-4 z-10 hidden dark:bg-gray-700 dark:text-white"
           ></div>
         </div>
       </div>
@@ -88,7 +94,7 @@
       <!-- Scroll Down Icon -->
       <div class="flex justify-center mt-16 md:mt-24 pb-12 z-40">
         <a href="#your-city" class="href">
-          <div class="text-4xl font-bold text-white animate-bounce">↓</div>
+          <div class="text-4xl font-bold text-white animate-bounce dark:text-gray-300">↓</div>
         </a>
       </div>
     </section>
@@ -96,27 +102,27 @@
     <section class="py-24" id="your-city">
       <div>
         <h2
-          class="text-4xl text-blue-500 text-center font-bold mb-10 bungee-regular"
+          class="text-4xl text-blue-500 text-center font-bold mb-10 bungee-regular dark:text-blue-300"
         >
           YOUR CITY
         </h2>
-        <div class="bg-gray-100 md:p-6 flex items-center w-full justify-center">
+        <div class="bg-gray-100 md:p-6 flex items-center w-full justify-center dark:bg-gray-800">
           <div
-            class="bg-[#516170] px-2 sm:px-4 lg:px-6 w-full text-white py-4 rounded shadow text-left"
+            class="bg-[#516170] px-2 sm:px-4 lg:px-6 w-full text-white py-4 rounded shadow text-left dark:bg-gray-700"
           >
             <div
-              class="bg-blue-300 text-white shadow-lg rounded-lg px-6 md:px-12 py-4 bw-full"
+              class="bg-blue-300 text-white shadow-lg rounded-lg px-6 md:px-12 py-4 bw-full dark:bg-gray-800"
             >
               <!-- City Name -->
               <div class="text-center mb-2">
                 <h2
-                  class="text-4xl text-[#516170] bungee-regular font-bold"
+                  class="text-4xl text-[#516170] bungee-regular font-bold dark:text-gray-300"
                   id="city-name"
                 >
                   Loading...
                 </h2>
                 <p
-                  class="text-2xl font-bold uppercase"
+                  class="text-2xl font-bold uppercase dark:text-gray-400"
                   id="weather-description"
                 >
                   Light Rain
@@ -142,7 +148,7 @@
               >
                 <!-- Humidity -->
                 <div
-                  class="flex flex-col w-full max-w-sm text-black justify-center items-center gap-2 p-4 rounded bg-gradient-to-br from-blue-500 to-blue-700"
+                  class="flex flex-col w-full max-w-sm text-black justify-center items-center gap-2 p-4 rounded bg-gradient-to-br from-blue-500 to-blue-700 dark:from-gray-700 dark:to-gray-900"
                 >
                   <img
                     src="https://img.icons8.com/ios-filled/50/ffffff/humidity.png"
@@ -151,7 +157,7 @@
                   />
                   <div class="text-center">
                     <span
-                      class="font-medium text-xl text-[#2f2f2f] uppercase bungee-regular font-bold"
+                      class="font-medium text-xl text-[#2f2f2f] uppercase bungee-regular font-bold dark:text-gray-300"
                       >Humidity</span
                     >
                     <span
@@ -163,7 +169,7 @@
                 </div>
                 <!-- Wind Speed -->
                 <div
-                  class="flex flex-col w-full max-w-sm text-black justify-center items-center gap-2 p-4 rounded bg-gradient-to-br from-blue-500 to-blue-700"
+                  class="flex flex-col w-full max-w-sm text-black justify-center items-center gap-2 p-4 rounded bg-gradient-to-br from-blue-500 to-blue-700 dark:from-gray-700 dark:to-gray-900"
                 >
                   <img
                     src="https://img.icons8.com/ios-filled/50/ffffff/wind.png"
@@ -172,7 +178,7 @@
                   />
                   <div class="text-center">
                     <span
-                      class="font-medium text-xl text-[#2f2f2f] uppercase bungee-regular font-bold"
+                      class="font-medium text-xl text-[#2f2f2f] uppercase bungee-regular font-bold dark:text-gray-300"
                       >Wind Speed</span
                     >
                     <span
@@ -184,7 +190,7 @@
                 </div>
                 <!-- Pressure -->
                 <div
-                  class="flex flex-col w-full max-w-sm text-black justify-center items-center gap-2 p-4 rounded bg-gradient-to-br from-blue-500 to-blue-700"
+                  class="flex flex-col w-full max-w-sm text-black justify-center items-center gap-2 p-4 rounded bg-gradient-to-br from-blue-500 to-blue-700 dark:from-gray-700 dark:to-gray-900"
                 >
                   <img
                     src="https://img.icons8.com/ios-filled/50/ffffff/pressure.png"
@@ -193,7 +199,7 @@
                   />
                   <div class="text-center">
                     <span
-                      class="font-medium text-xl text-[#2f2f2f] uppercase bungee-regular font-bold"
+                      class="font-medium text-xl text-[#2f2f2f] uppercase bungee-regular font-bold dark:text-gray-300"
                       >Pressure</span
                     >
                     <span
@@ -205,7 +211,7 @@
                 </div>
                 <!-- Visibility -->
                 <div
-                  class="flex flex-col w-full max-w-sm text-black justify-center items-center gap-2 p-4 rounded bg-gradient-to-br from-blue-500 to-blue-700"
+                  class="flex flex-col w-full max-w-sm text-black justify-center items-center gap-2 p-4 rounded bg-gradient-to-br from-blue-500 to-blue-700 dark:from-gray-700 dark:to-gray-900"
                 >
                   <img
                     src="https://img.icons8.com/ios-filled/50/ffffff/visible.png"
@@ -214,7 +220,7 @@
                   />
                   <div class="text-center">
                     <span
-                      class="font-medium text-xl text-[#2f2f2f] uppercase bungee-regular font-bold"
+                      class="font-medium text-xl text-[#2f2f2f] uppercase bungee-regular font-bold dark:text-gray-300"
                       >Visibility</span
                     >
                     <span
@@ -511,7 +517,7 @@
 
     <!-- Footer -->
     <footer
-      class="bg-gray-800 text-white md:h-[80vh] flex flex-col justify-between"
+      class="bg-gray-800 text-white md:h-[80vh] flex flex-col justify-between dark:bg-gray-900"
     >
       <div class="container mx-auto px-6 md:px-12 py-12">
         <!-- Footer Content -->
@@ -519,7 +525,7 @@
           <!-- About Section -->
           <div>
             <h3 class="text-lg font-semibold mb-4">About Us</h3>
-            <p class="text-sm text-gray-400">
+            <p class="text-sm text-gray-400 dark:text-gray-500">
               We provide accurate and reliable weather forecasts for cities
               around the world. Stay updated with the latest weather conditions
               and plan your day with confidence.
@@ -531,22 +537,22 @@
             <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
             <ul class="space-y-2">
               <li>
-                <a href="#your-city" class="text-gray-400 hover:text-white"
+                <a href="#your-city" class="text-gray-400 hover:text-white dark:hover:text-gray-300"
                   >Your City</a
                 >
               </li>
               <li>
-                <a href="#nearby-cities" class="text-gray-400 hover:text-white"
+                <a href="#nearby-cities" class="text-gray-400 hover:text-white dark:hover:text-gray-300"
                   >Nearby Cities</a
                 >
               </li>
               <li>
-                <a href="#world-forecast" class="text-gray-400 hover:text-white"
+                <a href="#world-forecast" class="text-gray-400 hover:text-white dark:hover:text-gray-300"
                   >World Forecast</a
                 >
               </li>
               <li>
-                <a href="#contact" class="text-gray-400 hover:text-white"
+                <a href="#contact" class="text-gray-400 hover:text-white dark:hover:text-gray-300"
                   >Contact Us</a
                 >
               </li>
@@ -558,7 +564,7 @@
             <h3 class="text-lg font-semibold mb-4">
               Subscribe to Our Newsletter
             </h3>
-            <p class="text-sm text-gray-400 mb-4">
+            <p class="text-sm text-gray-400 mb-4 dark:text-gray-500">
               Get the latest weather updates and news delivered straight to your
               inbox.
             </p>
@@ -566,7 +572,7 @@
               <input
                 type="email"
                 placeholder="Enter your email"
-                class="px-4 py-2 rounded bg-gray-700 text-white focus:outline-none"
+                class="px-4 py-2 rounded bg-gray-700 text-white focus:outline-none dark:bg-gray-800"
               />
               <button
                 class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
@@ -579,7 +585,7 @@
           <!-- Contact Information -->
           <div>
             <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
-            <ul class="space-y-2 text-sm text-gray-400">
+            <ul class="space-y-2 text-sm text-gray-400 dark:text-gray-500">
               <li>
                 <span class="font-semibold text-white">Email:</span>
                 support@weatherapp.com
@@ -602,23 +608,23 @@
         <div
           class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center"
         >
-          <p class="text-sm text-gray-400 text-center md:text-left">
+          <p class="text-sm text-gray-400 text-center md:text-left dark:text-gray-500">
             © 2025 Weather App. All rights reserved.
           </p>
           <div class="flex space-x-4 mt-4 md:mt-0">
-            <a href="#" class="text-gray-400 hover:text-white">
+            <a href="#" class="text-gray-400 hover:text-white dark:hover:text-gray-300">
               <img
                 src="https://img.icons8.com/ios-filled/24/ffffff/facebook.png"
                 alt="Facebook"
               />
             </a>
-            <a href="#" class="text-gray-400 hover:text-white">
+            <a href="#" class="text-gray-400 hover:text-white dark:hover:text-gray-300">
               <img
                 src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png"
                 alt="Twitter"
               />
             </a>
-            <a href="#" class="text-gray-400 hover:text-white">
+            <a href="#" class="text-gray-400 hover:text-white dark:hover:text-gray-300">
               <img
                 src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png"
                 alt="Instagram"
