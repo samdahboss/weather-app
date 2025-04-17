@@ -42,7 +42,7 @@
       <div class="absolute top-4 right-4">
         <button
           id="toggleThemeBtn"
-          class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-4 py-2 rounded-lg shadow"
+          class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-3 py-2 sm:px-4 sm:py-2 rounded-lg shadow"
         >
           Toggle Dark Mode
         </button>
@@ -50,16 +50,16 @@
 
       <!-- Left: Current Weather Panel -->
       <aside
-        class="bg-white dark:bg-gray-800 p-4 sm:p-6 max-h-[95vh] rounded-3xl shadow-md flex flex-col items-center text-center"
+        class="bg-white dark:bg-gray-800 p-3 sm:p-6 max-h-[95vh] rounded-3xl shadow-md flex flex-col items-center text-center"
       >
         <div
-          class="relative flex flex-col items-center justify-center w-full items-center dark:bg-gray-800"
+          class="relative flex flex-col items-center justify-center w-full dark:bg-gray-800"
         >
           <input
             id="search-input"
             type="text"
             placeholder="Search for places …"
-            class="w-full mb-4 px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring sm:px-4 sm:py-3"
+            class="w-full mb-3 px-2 py-2 sm:mb-4 sm:px-4 sm:py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring"
           />
           <div
             id="autocomplete"
@@ -68,7 +68,7 @@
         </div>
 
         <div
-          class="text-2xl bungee-regular uppercase sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2"
+          class="text-xl sm:text-2xl md:text-3xl lg:text-4xl bungee-regular uppercase font-light mb-2"
           id="city-name"
         >
           ......
@@ -78,16 +78,16 @@
             id="weather-icon"
             src="https://img.icons8.com/emoji/96/000000/sun-emoji.png"
             alt="Weather Icon"
-            class="w-20 h-20 sm:w-24 sm:h-24 mb-4"
+            class="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mb-4"
           />
           <div
-            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2"
+            class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-2"
             id="current-temp"
           >
             .....
           </div>
         </div>
-        <p class="text-sm sm:text-md font-medium mb-1" id="weather-main">
+        <p class="text-xs sm:text-sm font-medium mb-1" id="weather-main">
           .......
         </p>
         <p class="text-xs sm:text-sm text-gray-500 mb-6" id="weather-desc">
@@ -98,7 +98,7 @@
           <img
             src="https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="City image"
-            class="object-cover w-full h-64 sm:max-h-64"
+            class="object-cover w-full h-40 sm:h-48 lg:h-64"
             id="city-image"
           />
         </div>
@@ -106,7 +106,7 @@
 
       <!-- Right: Weather Details -->
       <main
-        class="lg:col-span-2 flex flex-col gap-4 sm:gap-6 overflow-y-auto scrollbar-hidden lg:max-h-[95vh]"
+        class="lg:col-span-2 flex flex-col gap-3 sm:gap-4 overflow-y-auto scrollbar-hidden lg:max-h-[95vh]"
       >
         <!-- Tabs -->
         <div class="flex justify-start items-center">
@@ -115,7 +115,7 @@
             class="text-sm sm:text-base md:text-lg"
           >
             <div
-              class="text-2xl text-blue-400 font-bold bungee-regular dark:text-blue-300"
+              class="text-xl sm:text-2xl text-blue-400 font-bold bungee-regular dark:text-blue-300"
             >
               WUMICODES
             </div>
@@ -124,14 +124,14 @@
 
         <!-- Forecast Cards -->
         <section
-          class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-2 text-center"
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2 text-center"
         >
           <!-- Sunday -->
           <div class="bg-white dark:bg-gray-800 rounded-xl p-2 sm:p-4 shadow">
             <p class="text-xs sm:text-sm font-medium">Sun</p>
             <img
               src="https://img.icons8.com/color/48/sun.png"
-              class="mx-auto w-8 sm:w-10"
+              class="mx-auto w-6 sm:w-8 lg:w-10"
             />
             <p class="text-xs sm:text-sm">15° / 3°</p>
           </div>
@@ -140,7 +140,7 @@
             <p class="text-xs sm:text-sm font-medium">Mon</p>
             <img
               src="https://img.icons8.com/color/48/partly-cloudy-day.png"
-              class="mx-auto w-8 sm:w-10"
+              class="mx-auto w-6 sm:w-8 lg:w-10"
             />
             <p class="text-xs sm:text-sm">12° / 7°</p>
           </div>
@@ -149,7 +149,7 @@
             <p class="text-xs sm:text-sm font-medium">Tue</p>
             <img
               src="https://img.icons8.com/color/48/cloud.png"
-              class="mx-auto w-8 sm:w-10"
+              class="mx-auto w-6 sm:w-8 lg:w-10"
             />
             <p class="text-xs sm:text-sm">9° / 7°</p>
           </div>
@@ -158,7 +158,7 @@
             <p class="text-xs sm:text-sm font-medium">Wed</p>
             <img
               src="https://img.icons8.com/color/48/rain.png"
-              class="mx-auto w-8 sm:w-10"
+              class="mx-auto w-6 sm:w-8 lg:w-10"
             />
             <p class="text-xs sm:text-sm">8° / 1°</p>
           </div>
@@ -167,7 +167,7 @@
             <p class="text-xs sm:text-sm font-medium">Thu</p>
             <img
               src="https://img.icons8.com/color/48/wind.png"
-              class="mx-auto w-8 sm:w-10"
+              class="mx-auto w-6 sm:w-8 lg:w-10"
             />
             <p class="text-xs sm:text-sm">5° / 2°</p>
           </div>
@@ -176,7 +176,7 @@
             <p class="text-xs sm:text-sm font-medium">Fri</p>
             <img
               src="https://img.icons8.com/color/48/sun.png"
-              class="mx-auto w-8 sm:w-10"
+              class="mx-auto w-6 sm:w-8 lg:w-10"
             />
             <p class="text-xs sm:text-sm">4° / 4°</p>
           </div>
@@ -185,7 +185,7 @@
             <p class="text-xs sm:text-sm font-medium">Sat</p>
             <img
               src="https://img.icons8.com/color/48/sun.png"
-              class="mx-auto w-8 sm:w-10"
+              class="mx-auto w-6 sm:w-8 lg:w-10"
             />
             <p class="text-xs sm:text-sm">3° / 3°</p>
           </div>
@@ -193,10 +193,10 @@
 
         <!-- Today's Highlights -->
         <section>
-          <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-4">
+          <h2 class="text-base sm:text-lg md:text-xl font-semibold mb-3 sm:mb-4">
             Today's Highlights
           </h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             <!-- Pressure -->
             <div class="bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-xl shadow">
               <p
@@ -204,7 +204,7 @@
               >
                 Pressure
               </p>
-              <p class="text-2xl sm:text-3xl font-bold" id="pressure">5</p>
+              <p class="text-lg sm:text-xl font-bold" id="pressure">5</p>
             </div>
 
             <!-- Wind Status -->
@@ -214,9 +214,9 @@
               >
                 Wind Status
               </p>
-              <p class="text-2xl sm:text-3xl font-bold">
+              <p class="text-lg sm:text-xl font-bold">
                 <span id="wind-speed">7.7</span
-                ><span class="text-xs sm:text-sm"> km/h</span>
+                >
               </p>
             </div>
 
@@ -227,7 +227,7 @@
               >
                 Sea Level
               </p>
-              <p class="text-2xl sm:text-3xl font-bold">
+              <p class="text-lg sm:text-xl font-bold">
                 <span id="sea-level">1022</span>
               </p>
             </div>
@@ -239,7 +239,7 @@
               >
                 Humidity
               </p>
-              <p class="text-2xl sm:text-3xl font-bold" id="humidity">12%</p>
+              <p class="text-lg sm:text-xl font-bold" id="humidity">12%</p>
             </div>
 
             <!-- Sunrise -->
@@ -249,7 +249,7 @@
               >
                 Sun Rise
               </p>
-              <p class="text-2xl sm:text-3xl font-bold" id="sunrise">...</p>
+              <p class="text-lg sm:text-xl font-bold" id="sunrise">...</p>
             </div>
 
             <!-- Sunset-->
@@ -259,7 +259,7 @@
               >
                 Sun Set
               </p>
-              <p class="text-2xl sm:text-3xl font-bold" id="sunset">105</p>
+              <p class="text-lg sm:text-xl font-bold" id="sunset">105</p>
             </div>
           </div>
         </section>
