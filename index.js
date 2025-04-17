@@ -250,39 +250,39 @@ const updateCityCards = async () => {
   };
   fillNearbyCitiesCards();
 
-  function createMoreCityDiv(weatherIconUrl, cityName) {
-    const div = document.createElement("div");
-    div.className =
-      "flex justify-between bg-blue-100 items-center border px-6 py-4 rounded cursor-pointer";
-
-    const innerDiv = document.createElement("div");
-    innerDiv.className = "flex items-center gap-2";
-
-    const img = document.createElement("img");
-    img.src = weatherIconUrl;
-    img.className = "w-12 h-12";
-
-    const text = document.createElement("span");
-    text.innerHTML= cityName
-    text.className="font-bold"
-
-    innerDiv.appendChild(img);
-    innerDiv.appendChild(text);
-
-    const arrowSpan = document.createElement("span");
-    arrowSpan.textContent = "↗";
-
-    div.appendChild(innerDiv);
-    div.appendChild(arrowSpan);
-    
-    div.addEventListener("click", ()=>{
-      selectCity(cityName)
-    })
-
-    return div;
-  }
-
   const fillMoreCitiesCards = () => {
+    const createMoreCityDiv = (weatherIconUrl, cityName) => {
+      const div = document.createElement("div");
+      div.className =
+        "flex justify-between bg-blue-100 items-center border px-6 py-4 rounded cursor-pointer";
+
+      const innerDiv = document.createElement("div");
+      innerDiv.className = "flex items-center gap-2";
+
+      const img = document.createElement("img");
+      img.src = weatherIconUrl;
+      img.className = "w-12 h-12";
+
+      const text = document.createElement("span");
+      text.innerHTML = cityName;
+      text.className = "font-bold";
+
+      innerDiv.appendChild(img);
+      innerDiv.appendChild(text);
+
+      const arrowSpan = document.createElement("span");
+      arrowSpan.textContent = "↗";
+
+      div.appendChild(innerDiv);
+      div.appendChild(arrowSpan);
+
+      div.addEventListener("click", () => {
+        selectCity(cityName);
+      });
+
+      return div;
+    };
+    
     const moreCities = document.getElementById("more-cities");
     citiesData.forEach((city) => {
       const moreCityDiv = createMoreCityDiv(
