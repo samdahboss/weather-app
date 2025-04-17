@@ -52,18 +52,26 @@
       <aside
         class="bg-white dark:bg-gray-800 p-4 sm:p-6 max-h-[95vh] rounded-3xl shadow-md flex flex-col items-center text-center"
       >
-        <input
-          id="search"
-          type="text"
-          placeholder="Search for places …"
-          class="w-full mb-4 px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring sm:px-4 sm:py-3"
-        />
+        <div
+          class="relative flex flex-col items-center justify-center  w-full items-center dark:bg-gray-800"
+        >
+          <input
+            id="search-input"
+            type="text"
+            placeholder="Search for places …"
+            class="w-full mb-4 px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring sm:px-4 sm:py-3"
+          />
+          <div
+            id="autocomplete"
+            class="bg-white shadow-lg absolute top-full left-0 w-full px-4 z-10 hidden dark:bg-gray-700 dark:text-white"
+          ></div>
+        </div>
 
         <div
           class="text-2xl bungee-regular uppercase sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2"
           id="city-name"
         >
-          IJEBU-ODE
+          ......
         </div>
         <div class="flex items-center">
           <img
@@ -76,14 +84,14 @@
             class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2"
             id="current-temp"
           >
-            12°C
+            .....
           </div>
         </div>
         <p class="text-sm sm:text-md font-medium mb-1" id="weather-main">
-          Mostly Cloudy
+          .......
         </p>
         <p class="text-xs sm:text-sm text-gray-500 mb-6" id="weather-desc">
-          Rain – 30%
+          ....
         </p>
 
         <div class="w-full rounded-xl overflow-hidden mt-auto">
@@ -215,8 +223,7 @@
                 Sea Level
               </p>
               <p class="text-2xl sm:text-3xl font-bold">
-                <span id="sea-level">1022</span
-                >
+                <span id="sea-level">1022</span>
               </p>
             </div>
 
@@ -230,26 +237,26 @@
               <p class="text-2xl sm:text-3xl font-bold" id="humidity">12%</p>
             </div>
 
-            <!-- Visibility -->
+            <!-- Sunrise -->
             <div class="bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-xl shadow">
               <p
                 class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-2"
               >
-                Visibility
+                Sun Rise
               </p>
-              <p class="text-2xl sm:text-3xl font-bold" id="visibility">
-                5.2 km
+              <p class="text-2xl sm:text-3xl font-bold" id="sunrise">
+                ...
               </p>
             </div>
 
-            <!-- Air Quality -->
+            <!-- Sunset-->
             <div class="bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-xl shadow">
               <p
                 class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-2"
               >
-                Air Quality
+                Sun Set
               </p>
-              <p class="text-2xl sm:text-3xl font-bold" id="air-quality">105</p>
+              <p class="text-2xl sm:text-3xl font-bold" id="sunset">105</p>
             </div>
           </div>
         </section>

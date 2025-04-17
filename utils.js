@@ -20,16 +20,14 @@ export const setTheme = () => {
 
   toggleTheme.addEventListener("click", () => {
     document.documentElement.classList.toggle("dark");
-    document.documentElement.classList.contains("dark")?
-        toggleTheme.innerHTML = "☀️ Light":
-            toggleTheme.innerHTML="🌙 Dark"
-            
+    document.documentElement.classList.contains("dark")
+      ? (toggleTheme.innerHTML = "☀️ Light")
+      : (toggleTheme.innerHTML = "🌙 Dark");
+
     localStorage.setItem(
       "theme",
       document.documentElement.classList.contains("dark") ? "dark" : "light"
     );
-
-    
   });
 };
 //Function to get the name of any city by coordinates
@@ -87,6 +85,11 @@ export const formatData = (data) => {
     windSpeed: `${data.wind.speed} m/s`, // Wind speed
     pressure: `${data.main.pressure} hPa`, // Pressure
     visibility: `${data.visibility / 1000} km`, // Visibility in kilometers
+    seaLevel: data.main.sea_level,
+    weatherMain: data.weather[0].main,
+    weatherIconUrl: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+    sunrise: data.sys.sunrise,
+    sunset: data.sys.sunset,
   };
 };
 

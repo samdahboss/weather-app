@@ -13,6 +13,15 @@ const city = params.get("name");
 let latitude,
   longitude = "";
 
+const getRealTime = (unixTimestamp) => {
+  const date = new Date(unixTimestamp * 1000); // Convert to milliseconds
+
+  // Format the date to a readable time
+  const hours = date.getHours();
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+  return `${hours}:${minutes}`;
+};
+
 const populateDetails = async () => {
   const weatherData = await getCityWeatherByName(city);
   latitude = weatherData.coord.lat;
@@ -24,6 +33,68 @@ const populateDetails = async () => {
     longitude,
   });
 
+  const searchCities = () => {
+    let citiesData = [];
+
+    // Load the JSON file once when the page loads
+    fetch("./cities.json")
+      .then((res) => res.json())
+      .then((data) => {
+        citiesData = data;
+      })
+      .catch((err) => console.error("Error loading city data:", err));
+
+    const searchInput = document.getElementById("search-input");
+    const autocompleteDiv = document.getElementById("autocomplete");
+
+    // Search function using local JSON
+    const searchCities = (query) => {
+      if (!query || citiesData.length === 0) return [];
+
+      return citiesData
+        .filter((city) =>
+          city.name.toLowerCase().startsWith(query.toLowerCase())
+        )
+        .map((city) => city.name)
+        .slice(0, 3); //Return First 5 cities that starts with that query
+    };
+
+    // Event listener for the search input
+    searchInput.addEventListener("input", async (event) => {
+      const userInput = event.target.value;
+
+      // Clear previous suggestions
+      autocompleteDiv.innerHTML = "";
+
+      if (userInput.trim() === "") {
+        autocompleteDiv.classList.add("hidden");
+        return;
+      }
+
+      // Filter cities and display suggestions
+      const matchingCities = searchCities(userInput);
+      matchingCities.forEach((city) => {
+        const suggestionDiv = document.createElement("div");
+        suggestionDiv.textContent = city;
+        suggestionDiv.className =
+          "cursor-pointer hover:bg-gray-100 px-4 py-2 border-b";
+        suggestionDiv.addEventListener("click", () => {
+          selectCity(city);
+        });
+        autocompleteDiv.appendChild(suggestionDiv);
+      });
+
+      // Show suggestions if there are matches
+      if (matchingCities.length > 0) {
+        autocompleteDiv.classList.remove("hidden");
+      } else {
+        autocompleteDiv.classList.add("hidden");
+      }
+    });
+  };
+
+  searchCities();
+
   const populateWeatherInfo = (
     cityName,
     weatherMain,
@@ -33,7 +104,9 @@ const populateDetails = async () => {
     humidity,
     windSpeed,
     pressure,
-    visibility
+    seaLevel,
+    sunrise,
+    sunset
   ) => {
     document.getElementById("city-name").innerHTML = cityName;
     document.getElementById("weather-main").innerHTML = weatherMain;
@@ -43,7 +116,9 @@ const populateDetails = async () => {
     document.getElementById("humidity").innerHTML = humidity;
     document.getElementById("wind-speed").innerHTML = windSpeed;
     document.getElementById("pressure").innerHTML = pressure;
-    document.getElementById("visibility").innerHTML = visibility;
+    document.getElementById("sea-level").innerHTML = seaLevel;
+    document.getElementById("sunrise").innerHTML = sunrise;
+    document.getElementById("sunset").innerHTML = sunset;
   };
 
   const {
@@ -53,7 +128,11 @@ const populateDetails = async () => {
     humidity,
     windSpeed,
     pressure,
-    visibility,
+    seaLevel,
+    weatherMain,
+    weatherIconUrl,
+    sunrise,
+    sunset,
   } = formatData(weatherData);
 
   async function getCityImage(city) {
@@ -81,23 +160,18 @@ const populateDetails = async () => {
     cityImage ||
     "https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
-  const seaLevel = document.getElementById("sea-level");
-  seaLevel.innerHTML = weatherData.main.sea_level;
-
-  const weatherMain = weatherData.weather[0].main;
-
-  const weatherIcon = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
-
   populateWeatherInfo(
     cityName,
     weatherMain,
     weatherDescription,
-    weatherIcon,
+    weatherIconUrl,
     temperature,
     humidity,
     windSpeed,
     pressure,
-    visibility
+    seaLevel,
+    getRealTime(sunrise),
+    getRealTime(sunset)
   );
 
   const fillNearbyCitiesCards = () => {
