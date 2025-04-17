@@ -1,3 +1,37 @@
+//Set Theme Function
+export const setTheme = () => {
+  const toggleTheme = document.querySelector("#toggleThemeBtn");
+  // Check if the user has a theme preference saved in localStorage
+  const theme = localStorage.getItem("theme");
+  // If no preference is saved, check the user's system preference
+  if (theme) {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    toggleTheme.innerHTML = theme === "dark" ? "🌙 Dark" : "☀️ Light";
+  } else if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    document.documentElement.classList.add("dark");
+    toggleTheme.innerHTML = "🌙 Dark";
+  } else {
+    document.documentElement.classList.remove("dark");
+    toggleTheme.innerHTML = "☀️ Light";
+  }
+
+  toggleTheme.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.contains("dark")?
+        toggleTheme.innerHTML = "☀️ Light":
+            toggleTheme.innerHTML="🌙 Dark"
+            
+    localStorage.setItem(
+      "theme",
+      document.documentElement.classList.contains("dark") ? "dark" : "light"
+    );
+
+    
+  });
+};
 //Function to get the name of any city by coordinates
 export const getCityName = async (latitude, longitude) => {
   try {
@@ -44,14 +78,14 @@ export const getNearbyCities = async ({ latitude, longitude }) => {
 };
 
 export const formatData = (data) => {
-    return {
-      cityName: data.name, // City name
-      weatherDescription: data.weather[0].description, // Weather description
-      weatherIcon: `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="Weather Icon">`, // Weather icon
-      temperature: `${data.main.temp}°C`, // Temperature
-      humidity: `${data.main.humidity}%`, // Humidity
-      windSpeed: `${data.wind.speed} m/s`, // Wind speed
-      pressure: `${data.main.pressure} hPa`, // Pressure
-      visibility: `${data.visibility / 1000} km`, // Visibility in kilometers
-    };
+  return {
+    cityName: data.name, // City name
+    weatherDescription: data.weather[0].description, // Weather description
+    weatherIcon: `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="Weather Icon">`, // Weather icon
+    temperature: `${data.main.temp}°C`, // Temperature
+    humidity: `${data.main.humidity}%`, // Humidity
+    windSpeed: `${data.wind.speed} m/s`, // Wind speed
+    pressure: `${data.main.pressure} hPa`, // Pressure
+    visibility: `${data.visibility / 1000} km`, // Visibility in kilometers
   };
+};

@@ -3,7 +3,9 @@ import {
   getCityName,
   getNearbyCities,
   formatData,
+  setTheme
 } from "./utils.js";
+setTheme();
 
 //Get the user's current location using the Geolocation API
 const getCurrentCity = async () => {
