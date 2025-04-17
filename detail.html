@@ -11,12 +11,32 @@
         darkMode: "class", // Use 'class' strategy for dark mode
       };
     </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee"
+      rel="stylesheet"
+    />
+    <style>
+      @layer utilities {
+        .scrollbar-hidden {
+          scrollbar-width: none; /* For Firefox */
+          -ms-overflow-style: none; /* For IE and Edge */
+        }
+        .scrollbar-hidden::-webkit-scrollbar {
+          display: none; /* For Chrome, Safari, and Opera */
+        }
+      }
+      .bungee-regular {
+        font-family: "Bungee", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
   </head>
   <body
     class="bg-gray-100 dark:bg-gray-900 font-sans text-gray-800 dark:text-gray-200"
   >
     <div
-      class="max-w-7xl mx-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 min-h-screen"
+      class="max-w-7xl mx-auto p-4 sm:pb-0 sm:p-6 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 min-h-screen"
     >
       <!-- Dark Mode Toggle -->
       <div class="absolute top-4 right-4">
@@ -30,7 +50,7 @@
 
       <!-- Left: Current Weather Panel -->
       <aside
-        class="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-3xl shadow-md flex flex-col items-center text-center"
+        class="bg-white dark:bg-gray-800 p-4 sm:p-6 max-h-[95vh] rounded-3xl shadow-md flex flex-col items-center text-center"
       >
         <input
           id="search"
@@ -40,22 +60,25 @@
         />
 
         <div
-          class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-2"
-          id="current-temp"
+          class="text-2xl bungee-regular uppercase sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2"
+          id="city-name"
         >
-          12°C
+          IJEBU-ODE
         </div>
-        <div class="text-xs sm:text-sm text-gray-500 mb-6" id="current-time">
-          Monday, 16:00
+        <div class="flex items-center">
+          <img
+            id="weather-icon"
+            src="https://img.icons8.com/emoji/96/000000/sun-emoji.png"
+            alt="Weather Icon"
+            class="w-20 h-20 sm:w-24 sm:h-24 mb-4"
+          />
+          <div
+            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2"
+            id="current-temp"
+          >
+            12°C
+          </div>
         </div>
-
-        <img
-          id="weather-icon"
-          src="https://img.icons8.com/emoji/96/000000/sun-emoji.png"
-          alt="Weather Icon"
-          class="w-20 h-20 sm:w-24 sm:h-24 mb-4"
-        />
-
         <p class="text-sm sm:text-md font-medium mb-1" id="weather-main">
           Mostly Cloudy
         </p>
@@ -68,15 +91,15 @@
             src="https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="City image"
             class="object-cover w-full h-64 sm:max-h-64"
+            id="city-image"
           />
-          <p class="mt-2 text-sm sm:text-md font-semibold" id="location">
-            New York, NY, USA
-          </p>
         </div>
       </aside>
 
       <!-- Right: Weather Details -->
-      <main class="lg:col-span-2 flex flex-col gap-4 sm:gap-6">
+      <main
+        class="lg:col-span-2 flex flex-col gap-4 sm:gap-6 overflow-y-auto scrollbar-hidden lg:max-h-[95vh]"
+      >
         <!-- Tabs -->
         <div class="flex justify-start items-center">
           <button
@@ -161,15 +184,14 @@
             Today's Highlights
           </h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <!-- UV Index -->
+            <!-- Pressure -->
             <div class="bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-xl shadow">
               <p
                 class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-2"
               >
-                UV Index
+                Pressure
               </p>
-              <p class="text-2xl sm:text-3xl font-bold" id="uv-index">5</p>
-              <p class="text-xs text-gray-500 dark:text-gray-400">Moderate</p>
+              <p class="text-2xl sm:text-3xl font-bold" id="pressure">5</p>
             </div>
 
             <!-- Wind Status -->
@@ -183,21 +205,18 @@
                 <span id="wind-speed">7.7</span
                 ><span class="text-xs sm:text-sm"> km/h</span>
               </p>
-              <p class="text-xs sm:text-sm" id="wind-direction">WSW</p>
             </div>
 
-            <!-- Sunrise & Sunset -->
+            <!-- Sea Level -->
             <div class="bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-xl shadow">
               <p
                 class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-2"
               >
-                Sunrise & Sunset
+                Sea Level
               </p>
-              <p class="text-xs sm:text-sm">
-                🌅 <span id="sunrise">6:35 AM</span>
-              </p>
-              <p class="text-xs sm:text-sm">
-                🌇 <span id="sunset">5:42 PM</span>
+              <p class="text-2xl sm:text-3xl font-bold">
+                <span id="sea-level">1022</span
+                >
               </p>
             </div>
 
@@ -209,9 +228,6 @@
                 Humidity
               </p>
               <p class="text-2xl sm:text-3xl font-bold" id="humidity">12%</p>
-              <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
-                Normal 👍🏼
-              </p>
             </div>
 
             <!-- Visibility -->
@@ -224,9 +240,6 @@
               <p class="text-2xl sm:text-3xl font-bold" id="visibility">
                 5.2 km
               </p>
-              <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
-                Average 😐
-              </p>
             </div>
 
             <!-- Air Quality -->
@@ -237,9 +250,17 @@
                 Air Quality
               </p>
               <p class="text-2xl sm:text-3xl font-bold" id="air-quality">105</p>
-              <p class="text-xs sm:text-sm text-red-500">Unhealthy 👎🏼</p>
             </div>
           </div>
+        </section>
+        <section class="text-center py-4 mb-12" id="world-forecast">
+          <h2 class="text-3xl text-blue-500 font-bold mb-4 bungee-regular">
+            Nearby Cities
+          </h2>
+          <div
+            class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+            id="more-cities"
+          ></div>
         </section>
       </main>
     </div>

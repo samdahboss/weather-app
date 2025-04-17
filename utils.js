@@ -89,3 +89,7 @@ export const formatData = (data) => {
     visibility: `${data.visibility / 1000} km`, // Visibility in kilometers
   };
 };
+
+export function selectCity(name) {
+  window.location.href = `detail.html?name=${name}`;
+}

@@ -3,7 +3,8 @@ import {
   getCityName,
   getNearbyCities,
   formatData,
-  setTheme
+  setTheme,
+  selectCity
 } from "./utils.js";
 setTheme();
 
@@ -29,10 +30,6 @@ const getCurrentCity = async () => {
     throw new Error("Geolocation is not supported by this browser.");
   }
 };
-
-function selectCity(name) {
-  window.location.href = `detail.html?name=${name}`;
-}
 
 const searchCities = () => {
   let citiesData = [];
