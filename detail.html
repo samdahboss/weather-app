@@ -36,7 +36,7 @@
     class="bg-gray-100 dark:bg-gray-900 font-sans text-gray-800 dark:text-gray-200"
   >
     <div
-      class="max-w-7xl mx-auto p-4 sm:pb-0 sm:p-6 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 min-h-screen"
+      class="max-w-5xl lg:max-w-7xl mx-auto p-8 sm:pb-0 sm:p-6 lg:grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:min-h-screen"
     >
       <!-- Dark Mode Toggle -->
       <div class="absolute top-4 right-4">
@@ -50,7 +50,7 @@
 
       <!-- Left: Current Weather Panel -->
       <aside
-        class="bg-white dark:bg-gray-800 p-3 sm:p-6 max-h-[95vh] rounded-3xl shadow-md flex flex-col items-center text-center"
+        class="bg-white dark:bg-gray-800 mt-12 lg:mt-auto p-8 lg:p-6 mx-24 lg:mx-0 lg:max-h-[95vh] mb-12 lg:mb-0 rounded-3xl shadow-md flex flex-col items-center text-center"
       >
         <div
           class="relative flex flex-col items-center justify-center w-full dark:bg-gray-800"
@@ -106,14 +106,11 @@
 
       <!-- Right: Weather Details -->
       <main
-        class="lg:col-span-2 flex flex-col gap-3 sm:gap-4 overflow-y-auto scrollbar-hidden lg:max-h-[95vh]"
+        class="lg:col-span-2 px-12 lg:px-auto flex flex-col gap-3 sm:gap-4 overflow-y-auto scrollbar-hidden lg:max-h-[95vh]"
       >
         <!-- Tabs -->
         <div class="flex justify-start items-center">
-          <a
-            href="./index.html"
-            class="text-sm sm:text-base md:text-lg"
-          >
+          <a href="./index.html" class="text-sm sm:text-base md:text-lg">
             <div
               class="text-xl sm:text-2xl text-blue-400 font-bold bungee-regular dark:text-blue-300"
             >
@@ -124,7 +121,7 @@
 
         <!-- Forecast Cards -->
         <section
-          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2 text-center"
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 px-8 lg:px-auto gap-2 text-center my-8 lg:my-auto"
         >
           <!-- Sunday -->
           <div class="bg-white dark:bg-gray-800 rounded-xl p-2 sm:p-4 shadow">
@@ -193,82 +190,125 @@
 
         <!-- Today's Highlights -->
         <section>
-          <h2 class="text-base sm:text-lg md:text-xl font-semibold mb-3 sm:mb-4">
+          <h2
+            class="text-xl sm:text-2xl text-blue-400 font-bold bungee-regular dark:text-blue-300"
+          >
             Today's Highlights
           </h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+          <div class="grid grid-cols-3 gap-3 sm:gap-4 my-12 lg:my-4 px-8 lg:px-auto">
             <!-- Pressure -->
-            <div class="bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-xl shadow">
+            <div
+              class="bg-white dark:bg-gray-800 p-3 sm:p-4 space-y-4 rounded-xl shadow text-center"
+            >
               <p
-                class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-2"
+                class="text-lg text-gray-500 font-bold dark:text-gray-400 mb-2"
               >
                 Pressure
               </p>
+              <img
+                src="https://img.icons8.com/ios-filled/24/pressure.png"
+                alt="Pressure Icon"
+                class="h-6 w-6 dark:invert mx-auto"
+              />
               <p class="text-lg sm:text-xl font-bold" id="pressure">..</p>
             </div>
 
             <!-- Wind Status -->
-            <div class="bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-xl shadow">
+            <div
+              class="bg-white dark:bg-gray-800 p-3 sm:p-4 space-y-4 rounded-xl shadow text-center"
+            >
               <p
-                class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-2"
+                class="text-lg text-gray-500 font-bold dark:text-gray-400 mb-2"
               >
                 Wind Status
               </p>
+              <img
+                src="https://img.icons8.com/ios-filled/24/wind.png"
+                alt="Wind Icon"
+                class="h-6 w-6 dark:invert mx-auto"
+              />
               <p class="text-lg sm:text-xl font-bold">
-                <span id="wind-speed">...</span
-                >
+                <span id="wind-speed">...</span>
               </p>
             </div>
 
             <!-- Sea Level -->
-            <div class="bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-xl shadow">
+            <div
+              class="bg-white dark:bg-gray-800 p-3 sm:p-4 space-y-4 rounded-xl shadow text-center"
+            >
               <p
-                class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-2"
+                class="text-lg text-gray-500 font-bold dark:text-gray-400 mb-2"
               >
                 Sea Level
               </p>
+              <img
+                src="https://img.icons8.com/ios-filled/24/sea-waves.png"
+                alt="Sea Level Icon"
+                class="h-6 w-6 dark:invert mx-auto"
+              />
               <p class="text-lg sm:text-xl font-bold">
                 <span id="sea-level">....</span>
               </p>
             </div>
 
             <!-- Humidity -->
-            <div class="bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-xl shadow">
+            <div
+              class="bg-white dark:bg-gray-800 p-3 sm:p-4 space-y-4 rounded-xl shadow text-center"
+            >
               <p
-                class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-2"
+                class="text-lg text-gray-500 font-bold dark:text-gray-400 mb-2"
               >
                 Humidity
               </p>
+              <img
+                src="https://img.icons8.com/ios-filled/24/humidity.png"
+                alt="Humidity Icon"
+                class="h-6 w-6 dark:invert mx-auto"
+              />
               <p class="text-lg sm:text-xl font-bold" id="humidity">..%</p>
             </div>
 
             <!-- Sunrise -->
-            <div class="bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-xl shadow">
+            <div
+              class="bg-white dark:bg-gray-800 p-3 sm:p-4 space-y-4 rounded-xl shadow text-center"
+            >
               <p
-                class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-2"
+                class="text-lg text-gray-500 font-bold dark:text-gray-400 mb-2"
               >
                 Sun Rise
               </p>
+              <img
+                src="https://img.icons8.com/ios-filled/24/sunrise.png"
+                alt="Sunrise Icon"
+                class="h-6 w-6 dark:invert mx-auto"
+              />
               <p class="text-lg sm:text-xl font-bold" id="sunrise">...</p>
             </div>
 
-            <!-- Sunset-->
-            <div class="bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-xl shadow">
+            <!-- Sunset -->
+            <div
+              class="bg-white dark:bg-gray-800 p-3 sm:p-4 space-y-4 rounded-xl shadow text-center"
+            >
               <p
-                class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-2"
+                class="text-lg text-gray-500 font-bold dark:text-gray-400 mb-2"
               >
                 Sun Set
               </p>
+              <img
+                src="https://img.icons8.com/ios-filled/24/sunset.png"
+                alt="Sunset Icon"
+                class="h-6 w-6 dark:invert mx-auto"
+              />
               <p class="text-lg sm:text-xl font-bold" id="sunset">...</p>
             </div>
           </div>
         </section>
         <section class="text-center py-4 mb-12" id="world-forecast">
-          <h2 class="text-3xl text-blue-500 font-bold mb-4 bungee-regular">
+          <h2 class="text-xl text-left sm:text-2xl text-blue-400 font-bold bungee-regular dark:text-blue-300">
             Nearby Cities
           </h2>
           <div
-            class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+            class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto my-8 lg:my-4 px-8 lg:px-auto"
             id="more-cities"
           ></div>
         </section>

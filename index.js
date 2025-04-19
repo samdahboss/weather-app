@@ -204,7 +204,7 @@ const updateCityCards = async () => {
     const createMoreCityDiv = (weatherIconUrl, cityName) => {
       const div = document.createElement("div");
       div.className =
-        "flex justify-between bg-blue-100 dark:bg-gray-300 items-center border px-6 py-4 rounded cursor-pointer";
+        "flex justify-between bg-blue-100 dark:bg-gray-300 items-center border px-2 lg:px-6 py-4 rounded cursor-pointer";
 
       const innerDiv = document.createElement("div");
       innerDiv.className = "flex items-center gap-2";

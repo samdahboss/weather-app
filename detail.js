@@ -56,7 +56,7 @@ const populateDetails = async () => {
           city.name.toLowerCase().startsWith(query.toLowerCase())
         )
         .map((city) => city.name)
-        .slice(0, 3); //Return First 5 cities that starts with that query
+        .slice(0, 5); //Return First 5 cities that starts with that query
     };
 
     // Event listener for the search input

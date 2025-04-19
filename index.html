@@ -99,10 +99,10 @@
       </div>
     </section>
 
-    <section class="py-24" id="your-city">
+    <section class="py-8 lg:py-24" id="your-city">
       <div>
         <h2
-          class="text-4xl text-blue-500 text-center font-bold mb-10 bungee-regular dark:text-blue-300"
+          class=" text-2xl md:text-4xl text-blue-500 text-center font-bold mb-10 bungee-regular dark:text-blue-300"
         >
           YOUR CITY
         </h2>
@@ -111,12 +111,12 @@
             class="bg-[#516170] px-2 sm:px-4 lg:px-6 w-full text-white py-4 rounded shadow text-left dark:bg-gray-700"
           >
             <div
-              class="bg-blue-300 text-white shadow-lg rounded-lg px-6 md:px-12 py-4 bw-full dark:bg-gray-800"
+              class="bg-blue-300 text-white shadow-lg rounded-lg px-2 md:px-12 py-4 bw-full dark:bg-gray-800"
             >
               <!-- City Name -->
               <div class="text-center mb-2">
                 <h2
-                  class="text-4xl text-[#516170] bungee-regular font-bold dark:text-gray-300"
+                  class="text-2xl lg:text-4xl text-[#516170] bungee-regular font-bold dark:text-gray-300"
                   id="city-name"
                 >
                   Loading...
@@ -137,14 +137,14 @@
                   class="w-24 h-24"
                   id="weather-icon"
                 />
-                <div class="text-6xl font-extrabold ml-4" id="temperature">
+                <div class="text-4xl lg:text-6xl font-extrabold ml-4" id="temperature">
                   ....
                 </div>
               </div>
 
               <!-- Weather Details -->
               <div
-                class="grid md:grid-cols-2 gap-4 place-items-center px-2 sm:px-8 lg:px-32 text-sm"
+                class="grid grid-cols-2 gap-4 place-items-center px-2 sm:px-8 lg:px-32 text-sm"
               >
                 <!-- Humidity -->
                 <div
@@ -169,7 +169,7 @@
                 </div>
                 <!-- Wind Speed -->
                 <div
-                  class="flex flex-col w-full max-w-sm text-black justify-center items-center gap-2 p-4 rounded bg-gradient-to-br from-blue-500 to-blue-700 dark:from-gray-700 dark:to-gray-900"
+                  class="flex flex-col w-full max-w-sm text-black justify-center items-center gap-2 py-4 px-2 rounded bg-gradient-to-br from-blue-500 to-blue-700 dark:from-gray-700 dark:to-gray-900"
                 >
                   <img
                     src="https://img.icons8.com/ios-filled/50/ffffff/wind.png"
@@ -237,11 +237,11 @@
       </div>
     </section>
 
-    <section class="py-12" id="nearby-cities">
+    <section class="py-8 md:py-12" id="nearby-cities">
       <div
         class="nearby-cities flex flex-col gap-3 justify-between md:mt-0 px-4 lg:px-12"
       >
-        <h2 class="text-3xl mb-6 font-semibold bungee-regular text-blue-400">
+        <h2 class="text-2xl md:text-3xl mb-6 font-semibold bungee-regular text-blue-400">
           Nearby Cities
         </h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -250,7 +250,7 @@
             class="bg-gradient-to-br from-gray-300 to-blue-700 text-white shadow-lg rounded-lg p-8 w-full"
           >
             <!-- City Name -->
-            <div class="text-center mb-6">
+            <div class="text-center mb-2 md:mb-6">
               <h2 class="text-4xl font-bold" data-city-name="city-name">
                 Loading...
               </h2>
@@ -263,15 +263,16 @@
             </div>
 
             <!-- Weather Icon and Temperature -->
-            <div class="flex items-center justify-center mb-6">
+            <div class="flex items-center lg:justify-center mb-2 md:mb-6">
               <img
                 src="https://openweathermap.org/img/wn/10d@2x.png"
                 alt="Weather Icon"
                 data-weather-icon="weather-icon"
+                class="max-h-18 md:max-h-32"
                 
               />
               <div
-                class="text-6xl font-extrabold"
+                class="text-4xl md:text-6xl font-extrabold"
                 data-temperature="temperature"
               >
                 ..°C
@@ -279,7 +280,7 @@
             </div>
 
             <!-- Weather Details -->
-            <div class="grid grid-cols-1 gap-6 text-center">
+            <div class="grid grid-cols-1 gap-2 md:gap-6 text-center">
               <!-- Humidity -->
               <div class="flex gap-4 items-center">
                 <img
@@ -287,7 +288,7 @@
                   alt="Humidity Icon"
                   class="w-8 h-8 mb-2"
                 />
-                <span class="font-medium">Humidity</span>
+                <span class="text-xl font-bold md:font-medium">Humidity</span>
                 <span class="text-lg font-bold" data-humidity="humidity"
                   >..%</span
                 >
@@ -299,7 +300,7 @@
                   alt="Wind Icon"
                   class="w-8 h-8 mb-2"
                 />
-                <span class="font-medium">Wind Speed</span>
+                <span class="text-xl font-bold md:font-medium">Wind Speed</span>
                 <span class="text-lg font-bold" data-wind-speed="wind-speed"
                   >.. km/h</span
                 >
@@ -311,7 +312,7 @@
                   alt="Pressure Icon"
                   class="w-8 h-8 mb-2"
                 />
-                <span class="font-medium">Pressure</span>
+                <span class="text-xl font-bold md:font-medium">Pressure</span>
                 <span class="text-lg font-bold" data-pressure="pressure"
                   >.... hPa</span
                 >
@@ -323,7 +324,7 @@
                   alt="Visibility Icon"
                   class="w-8 h-8 mb-2"
                 />
-                <span class="font-medium">Visibility</span>
+                <span class="text-xl font-bold md:font-medium">Visibility</span>
                 <span class="text-lg font-bold" data-visibility="visibility"
                   >... km</span
                 >
@@ -335,7 +336,7 @@
             class="bg-gradient-to-br from-blue-300 to-blue-500 text-white shadow-lg rounded-lg p-8 w-full"
           >
             <!-- City Name -->
-            <div class="text-center mb-6">
+            <div class="text-center mb-2 md:mb-6">
               <h2 class="text-4xl font-bold" data-city-name="city-name">
                 Loading...
               </h2>
@@ -343,20 +344,20 @@
                 class="text-lg font-light uppercase"
                 data-weather-description="weather-description"
               >
-                ....... ...
+                ....
               </p>
             </div>
 
             <!-- Weather Icon and Temperature -->
-            <div class="flex items-center justify-center mb-6">
+            <div class="flex items-center lg:justify-center mb-2 md:mb-6">
               <img
                 src="https://openweathermap.org/img/wn/01d@2x.png"
                 alt="Weather Icon"
                 data-weather-icon="weather-icon"
-                
+                class="max-h-18 md:max-h-32"
               />
               <div
-                class="text-6xl font-extrabold"
+                class="text-4xl md:text-6xl font-extrabold"
                 data-temperature="temperature"
               >
                 ..°C
@@ -364,7 +365,7 @@
             </div>
 
             <!-- Weather Details -->
-            <div class="grid grid-cols-1 gap-6 text-center">
+            <div class="grid grid-cols-1 gap-2 md:gap-6 text-center">
               <!-- Humidity -->
               <div class="flex gap-4 items-center">
                 <img
@@ -372,10 +373,8 @@
                   alt="Humidity Icon"
                   class="w-8 h-8 mb-2"
                 />
-                <span class="font-medium">Humidity</span>
-                <span class="text-lg font-bold" data-humidity="humidity"
-                  >..%</span
-                >
+                <span class="text-xl font-bold md:font-medium">Humidity</span>
+                <span class="text-lg font-bold" data-humidity="humidity">..%</span>
               </div>
               <!-- Wind Speed -->
               <div class="flex gap-4 items-center">
@@ -384,10 +383,8 @@
                   alt="Wind Icon"
                   class="w-8 h-8 mb-2"
                 />
-                <span class="font-medium">Wind Speed</span>
-                <span class="text-lg font-bold" data-wind-speed="wind-speed"
-                  >.. km/h</span
-                >
+                <span class="text-xl font-bold md:font-medium">Wind Speed</span>
+                <span class="text-lg font-bold" data-wind-speed="wind-speed">.. km/h</span>
               </div>
               <!-- Pressure -->
               <div class="flex gap-4 items-center">
@@ -396,10 +393,8 @@
                   alt="Pressure Icon"
                   class="w-8 h-8 mb-2"
                 />
-                <span class="font-medium">Pressure</span>
-                <span class="text-lg font-bold" data-pressure="pressure"
-                  >.... hPa</span
-                >
+                <span class="text-xl font-bold md:font-medium">Pressure</span>
+                <span class="text-lg font-bold" data-pressure="pressure">.... hPa</span>
               </div>
               <!-- Visibility -->
               <div class="flex gap-4 items-center">
@@ -408,10 +403,8 @@
                   alt="Visibility Icon"
                   class="w-8 h-8 mb-2"
                 />
-                <span class="font-medium">Visibility</span>
-                <span class="text-lg font-bold" data-visibility="visibility"
-                  >.. km</span
-                >
+                <span class="text-xl font-bold md:font-medium">Visibility</span>
+                <span class="text-lg font-bold" data-visibility="visibility">... km</span>
               </div>
             </div>
           </div>
@@ -420,7 +413,7 @@
             class="bg-gradient-to-br from-gray-400 to-gray-600 text-white shadow-lg rounded-lg p-8 w-full"
           >
             <!-- City Name -->
-            <div class="text-center mb-6">
+            <div class="text-center mb-2 md:mb-6">
               <h2 class="text-4xl font-bold" data-city-name="city-name">
                 Loading...
               </h2>
@@ -428,20 +421,20 @@
                 class="text-lg font-light uppercase"
                 data-weather-description="weather-description"
               >
-                ..... .....
+                ....
               </p>
             </div>
 
             <!-- Weather Icon and Temperature -->
-            <div class="flex items-center justify-center mb-6">
+            <div class="flex items-center lg:justify-center mb-2 md:mb-6">
               <img
                 src="https://openweathermap.org/img/wn/01n@2x.png"
                 alt="Weather Icon"
                 data-weather-icon="weather-icon"
-                
+                class="max-h-18 md:max-h-32"
               />
               <div
-                class="text-6xl font-extrabold"
+                class="text-4xl md:text-6xl font-extrabold"
                 data-temperature="temperature"
               >
                 ..°C
@@ -449,7 +442,7 @@
             </div>
 
             <!-- Weather Details -->
-            <div class="grid grid-cols-1 gap-6 text-center">
+            <div class="grid grid-cols-1 gap-2 md:gap-6 text-center">
               <!-- Humidity -->
               <div class="flex gap-4 items-center">
                 <img
@@ -457,10 +450,8 @@
                   alt="Humidity Icon"
                   class="w-8 h-8 mb-2"
                 />
-                <span class="font-medium">Humidity</span>
-                <span class="text-lg font-bold" data-humidity="humidity"
-                  >..%</span
-                >
+                <span class="text-xl font-bold md:font-medium">Humidity</span>
+                <span class="text-lg font-bold" data-humidity="humidity">..%</span>
               </div>
               <!-- Wind Speed -->
               <div class="flex gap-4 items-center">
@@ -469,10 +460,8 @@
                   alt="Wind Icon"
                   class="w-8 h-8 mb-2"
                 />
-                <span class="font-medium">Wind Speed</span>
-                <span class="text-lg font-bold" data-wind-speed="wind-speed"
-                  >.. km/h</span
-                >
+                <span class="text-xl font-bold md:font-medium">Wind Speed</span>
+                <span class="text-lg font-bold" data-wind-speed="wind-speed">.. km/h</span>
               </div>
               <!-- Pressure -->
               <div class="flex gap-4 items-center">
@@ -481,10 +470,8 @@
                   alt="Pressure Icon"
                   class="w-8 h-8 mb-2"
                 />
-                <span class="font-medium">Pressure</span>
-                <span class="text-lg font-bold" data-pressure="pressure"
-                  >.... hPa</span
-                >
+                <span class="text-xl font-bold md:font-medium">Pressure</span>
+                <span class="text-lg font-bold" data-pressure="pressure">.... hPa</span>
               </div>
               <!-- Visibility -->
               <div class="flex gap-4 items-center">
@@ -493,10 +480,8 @@
                   alt="Visibility Icon"
                   class="w-8 h-8 mb-2"
                 />
-                <span class="font-medium">Visibility</span>
-                <span class="text-lg font-bold" data-visibility="visibility"
-                  >.. km</span
-                >
+                <span class="text-xl font-bold md:font-medium">Visibility</span>
+                <span class="text-lg font-bold" data-visibility="visibility">... km</span>
               </div>
             </div>
           </div>
