@@ -22,11 +22,115 @@ const getRealTime = (unixTimestamp) => {
   return `${hours}:${minutes}`;
 };
 
+const getForecast = async (lat, lon) => {
+  try {
+    const response = await fetch(
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto`
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch forecast data");
+    }
+
+    const forecastData = await response.json();
+    const result = forecastData.daily.time.map((_, index) => {
+      const weatherIcons = {
+        0: "sun.png",                        // Clear sky
+        1: "partly-cloudy-day.png",         // Mainly clear
+        2: "clouds.png",                    // Partly cloudy
+        3: "cloud.png",                     // Overcast
+      
+        45: "fog-day.png",                  // Fog
+        48: "fog-night.png",                // Depositing rime fog
+      
+        51: "light-rain.png",              // Drizzle: Light
+        53: "light-rain.png",              // Drizzle: Moderate
+        55: "light-rain.png",              // Drizzle: Dense
+      
+        56: "rain.png",           // Freezing drizzle: Light
+        57: "rain.png",           // Freezing drizzle: Dense
+      
+        61: "rain.png",                    // Rain: Slight
+        63: "rain.png",                    // Rain: Moderate
+        65: "rain.png",                    // Rain: Heavy
+      
+        66: "rain.png",           // Freezing rain: Light
+        67: "rain.png",           // Freezing rain: Heavy
+      
+        71: "snow.png",                    // Snow: Slight
+        73: "snow.png",                    // Snow: Moderate
+        75: "snow.png",                    // Snow: Heavy
+      
+        77: "snowflake.png",              // Snow grains
+      
+        80: "rain.png",             // Rain showers: Slight
+        81: "rain.png",             // Rain showers: Moderate
+        82: "rain.png",             // Rain showers: Violent
+      
+        85: "snow.png",             // Snow showers: Slight
+        86: "snow.png",             // Snow showers: Heavy
+      
+        95: "storm.png",                  // Thunderstorm: Moderate
+        96: "storm.png",       // Thunderstorm with slight hail
+        99: "storm.png",       // Thunderstorm with heavy hail
+      };
+      
+
+      const max_temp = forecastData.daily.temperature_2m_max[index];
+      const min_temp = forecastData.daily.temperature_2m_min[index];
+
+      const weatherCode = forecastData.daily.weathercode[index];
+      console.log(weatherCode);
+      const iconName = weatherIcons[weatherCode];
+      const iconLink = (iconName) => `https://img.icons8.com/color/48/${iconName}`;
+      
+
+      const day = new Date(forecastData.daily.time[index]).toLocaleDateString(
+        "en-US",
+        { weekday: "short" }
+      );
+
+      return {
+        day,
+        max_temp,
+        min_temp,
+        weather_icon: iconLink(iconName),
+      };
+    });
+    return result;
+  } catch (error) {
+    console.error("Error fetching forecast data:", error);
+    return [];
+  }
+};
+
+const populateForecast = (forecast) => {
+  const forecastcards = document.querySelectorAll(".forecast-card");
+
+  forecastcards.forEach((card, index) => {
+    const cardData = forecast[index]; // Adjust index to match forecast data
+    const {
+      day,
+      max_temp,
+      min_temp,
+      weather_icon,
+    } = cardData;
+
+    card.querySelector(".forecast-day").innerHTML = day;
+    card.querySelector(".forecast-temperature").innerHTML = `${max_temp}°C / ${min_temp}°C`;
+    // card.querySelector(".min-temp").innerHTML = `${min_temp}°C`;
+    card.querySelector(".forecast-icon").src = weather_icon;
+  });
+};
+
 const populateDetails = async () => {
   const weatherData = await getCityWeatherByName(city);
   latitude = weatherData.coord.lat;
   longitude = weatherData.coord.lon;
-  console.log(weatherData);
+  // console.log(weatherData);
+
+  const forecast = await getForecast(latitude, longitude);
+  populateForecast(forecast);
 
   const { citiesData } = await getNearbyCities({
     latitude,
